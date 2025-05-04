@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Biology for a Better World</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Biology for a Better World</h1>
+        <p>Test your knowledge on ecosystems and actions</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="ecosystems.html">Ecosystems</a>
+        <a href="actions.html">Actions</a>
+        <a href="quiz.html" class="active">Quiz</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="section">
+            <h2>Test Your Knowledge</h2>
+            <p>Take this quiz to see how much you've learned about biology and sustainable actions. Answer the questions below and submit to view your score. Click the images for hints!</p>
+            <div class="graphic">
+                <div class="graphic-item" data-info="Review ecosystems and actions for clues.">
+                    <img src="https://via.placeholder.com/300x200?text=Quiz+Hint" alt="Quiz Hint" class="interactive">
+                </div>
+                <div class="graphic-item" data-info="Every correct answer helps the planet!">
+                    <img src="https://via.placeholder.com/300x200?text=Sustainability" alt="Sustainability" class="interactive">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Quiz</h2>
+            <form id="quizForm">
+                <label>1. What is an ecosystem?</label>
+                <input type="radio" name="q1" value="a"> a) A type of plant<br>
+                <input type="radio" name="q1" value="b"> b) A community of organisms and their environment<br>
+                <input type="radio" name="q1" value="c"> c) A type of rock<br>
+
+                <label>2. Which action reduces waste?</label>
+                <input type="radio" name="q2" value="a"> a) Using disposable plastics<br>
+                <input type="radio" name="q2" value="b"> b) Recycling and composting<br>
+                <input type="radio" name="q2" value="c"> c) Burning trash<br>
+
+                <label>3. How do trees benefit ecosystems?</label>
+                <input type="radio" name="q3" value="a"> a) Increase pollution<br>
+                <input type="radio" name="q3" value="b"> b) Absorb CO2 and support biodiversity<br>
+                <input type="radio" name="q3" value="c"> c) Reduce oxygen levels<br>
+
+                <label>4. Why are wetlands important?</label>
+                <input type="radio" name="q4" value="a"> a) They purify water and prevent flooding<br>
+                <input type="radio" name="q4" value="b"> b) They produce plastic<br>
+                <input type="radio" name="q4" value="c"> c) They block sunlight<br>
+
+                <button type="submit">Submit Quiz</button>
+            </form>
+            <div id="quizResult"></div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <span class="popup-close">×</span>
+        <p id="popup-text"></p>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            const answers = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b',
+                q4: 'a'
+            };
+            
+            for (let i = 1; i <= 4; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) score++;
+            }
+            
+            const result = document.getElementById('quizResult');
+            const percentage = (score / 4) * 100;
+            result.innerHTML = `You scored ${score}/4 (${percentage}%)! <br>
+                ${score === 4 ? 'Excellent! You’re a sustainability star!' : 
+                score >= 2 ? 'Good job! Review the Ecosystems and Actions pages for more.' : 
+                'Keep learning! Check the Ecosystems and Actions pages to improve.'}`;
+        });
+    </script>
+</body>
+</html>
