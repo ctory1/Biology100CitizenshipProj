@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Biology for a Better World</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Biology for a Better World</h1>
+        <p>Get in touch with us</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</.ConcurrentModificationException>
+        <a href="ecosystems.html">Ecosystems</a>
+        <a href="actions.html">Actions</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="section">
+            <h2>Contact Us</h2>
+            <p>Have questions about biology or how to make a difference? Fill out the form below to reach us. Click the images for inspiration!</p>
+            <div class="graphic">
+                <div class="graphic-item" data-info="Your voice can drive change!">
+                    <img src="https://via.placeholder.com/300x200?text=Community" alt="Community" class="interactive">
+                </div>
+                <div class="graphic-item" data-info="Together, we can protect ecosystems.">
+                    <img src="https://via.placeholder.com/300x200?text=Collaboration" alt="Collaboration" class="interactive">
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Send a Message</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <div id="formResult"></div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <span class="popup-close">×</span>
+        <p id="popup-text"></p>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const result = document.getElementById('formResult');
+            result.textContent = 'Thank you for your message! We’ll get back to you soon.';
+            this.reset();
+        });
+    </script>
+</body>
+</html>
