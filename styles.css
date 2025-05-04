@@ -132,11 +132,6 @@ form {
     margin: auto;
 }
 
-form label {
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
 form input,
 form textarea {
     padding: 8px;
