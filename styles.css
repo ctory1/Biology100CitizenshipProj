@@ -49,6 +49,7 @@ nav a.active {
     background-color: #4CAF50;
 }
 
+
 .container {
     max-width: 1200px;
     margin: auto;
@@ -90,6 +91,11 @@ nav a.active {
 .graphic img.interactive:hover {
     transform: scale(1.05);
     cursor: pointer;
+}
+
+.headQ {
+    padding: 10px;
+    font-weight: bold;
 }
 
 .popup {
